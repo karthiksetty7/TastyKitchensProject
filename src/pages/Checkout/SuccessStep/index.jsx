@@ -4,45 +4,53 @@ import {FaCheckCircle} from 'react-icons/fa'
 import CheckoutProgress from '../CheckoutProgress'
 import {CheckoutContext} from '../../../context/CheckoutContext'
 import {saveOrder} from '../../../utils/orderHistoryStorage'
+// 1. Import the rewards utility
+import {addRewardPoints} from '../../../utils/rewardService'
 
-import './index.css' // Add this at the top of your imports
+import './index.css'
 
 const SuccessStep = () => {
   const navigate = useNavigate()
-  const {checkoutData, resetCheckout} = useContext(CheckoutContext) // 2. Access checkoutData
+  // 2. Add refreshPoints to your context destructuring
+  const {checkoutData, resetCheckout, refreshPoints} =
+    useContext(CheckoutContext)
   const [orderId, setOrderId] = useState('')
   const hasProcessed = useRef(false)
 
   useEffect(() => {
-    if (!hasProcessed.current) {
+    if (!hasProcessed.current && checkoutData.cartItems.length > 0) {
       const generatedId = `ORD-${Date.now().toString().slice(-6)}`
       setOrderId(generatedId)
 
-      // 1. Capture the data while it still exists in context!
+      // 3. Calculate Reward Points Earned (1 point per 10 rupees)
+      const earnedPoints = addRewardPoints(checkoutData.grandTotal)
+
       const orderPayload = {
         restaurantName:
           checkoutData.cartItems[0]?.restaurantName || 'Unknown Restaurant',
         restaurantId: checkoutData.cartItems[0]?.restaurantId,
-        items: checkoutData.cartItems, // Ensure this array is not empty
+        items: checkoutData.cartItems,
         subtotal: checkoutData.subtotal || 0,
         gst: checkoutData.gst || 0,
         deliveryFee: checkoutData.deliveryFee || 0,
         discount: checkoutData.discount || 0,
-        finalAmount: checkoutData.grandTotal || 0, // Note: You used grandTotal in context
-        couponCode: checkoutData.coupon?.code || null,
+        finalAmount: checkoutData.grandTotal || 0,
+        couponCode: checkoutData.coupon?.code ?? 'NONE',
         orderId: generatedId,
         orderedAt: new Date().toISOString(),
+        earnedPoints, // 4. Include this in your saved order history
+        rewardDiscount: checkoutData.rewardDiscount || 0,
       }
 
-      // 2. Save the fully populated object
       saveOrder(orderPayload)
 
-      // 3. Only now is it safe to clear the state
+      // 5. Clear state and trigger a refresh of the global points state
       resetCheckout()
+      refreshPoints()
 
       hasProcessed.current = true
     }
-  }, [checkoutData, resetCheckout])
+  }, [checkoutData, resetCheckout, refreshPoints])
 
   return (
     <div className="checkout-container">

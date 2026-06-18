@@ -1,4 +1,4 @@
-import {useContext} from 'react' // Added useContext
+import {useContext, useEffect} from 'react' // Added useContext
 import {Link, useNavigate} from 'react-router-dom'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -155,7 +155,7 @@ const OrderHistory = () => {
 
                     {eachOrder.couponCode &&
                       eachOrder.couponCode !== 'NONE' &&
-                      (eachOrder.discount ?? 0) > 0 && (
+                      eachOrder.discount > 0 && (
                         <li
                           className="order-item-row"
                           style={{color: '#065f46', fontWeight: '600'}}
@@ -170,9 +170,28 @@ const OrderHistory = () => {
                       )}
                   </ul>
 
+                  {(eachOrder.rewardDiscount ?? 0) > 0 && (
+                    <li
+                      className="order-item-row"
+                      style={{color: '#d97706', fontWeight: '600'}} // Using an amber/orange color for rewards
+                    >
+                      <span className="order-item-name-dot">
+                        Rewards Redeemed
+                      </span>
+                      <span className="order-item-row-cost">
+                        -₹{eachOrder.rewardDiscount}
+                      </span>
+                    </li>
+                  )}
+
                   <hr className="order-card-divider" />
 
                   <div className="order-card-footer">
+                    {eachOrder.earnedPoints > 0 && (
+                      <div className="reward-badge-small">
+                        <span>✨ Earned {eachOrder.earnedPoints} points</span>
+                      </div>
+                    )}
                     <div>
                       <p className="footer-timestamp-label">Ordered On</p>
                       <p className="footer-timestamp-value">

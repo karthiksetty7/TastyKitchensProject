@@ -10,7 +10,7 @@ import NotFound from './pages/NotFound'
 import Profile from './pages/Profile'
 import FavoritePage from './pages/FavoritePage'
 import OrderHistory from './pages/OrderHistory'
-
+import AnalyticsDashboard from './pages/AnalyticsDashboard'
 import AddressStep from './pages/Checkout/AddressStep'
 import PaymentStep from './pages/Checkout/PaymentStep'
 import ReviewStep from './pages/Checkout/ReviewStep'
@@ -33,6 +33,15 @@ const App = () => (
       element={
         <ProtectedRoute>
           <OrderHistory />
+        </ProtectedRoute>
+      }
+    />
+    {/* Added Analytics Route */}
+    <Route
+      path="/analytics"
+      element={
+        <ProtectedRoute>
+          <AnalyticsDashboard />
         </ProtectedRoute>
       }
     />

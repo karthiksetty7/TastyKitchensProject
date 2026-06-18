@@ -528,3 +528,51 @@
     font-size: 14px;
   }
 }
+
+/* Reward Redemption Styles */
+.reward-redemption-container {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reward-info-text {
+  font-size: 14px;
+  color: #475569;
+  font-weight: 500;
+}
+
+.reward-applied-text {
+  color: #16a34a; /* Professional Success Green */
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.redeem-button {
+  background-color: #f7931e;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.redeem-button:hover {
+  background-color: #e0841b;
+}
+
+.redeem-button:disabled {
+  background-color: #cbd5e1;
+  cursor: not-allowed;
+}

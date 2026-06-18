@@ -10,7 +10,8 @@ const Header = () => {
 
   const isHomeActive = location.pathname === '/'
   const isFavoritesActive = location.pathname === '/favorites'
-  const isOrdersActive = location.pathname === '/orders' // Track orders route active state
+  const isOrdersActive = location.pathname === '/orders'
+  const isAnalyticsActive = location.pathname === '/analytics' // Added for Analytics
   const isCartActive = location.pathname === '/cart'
   const isProfileActive = location.pathname === '/profile'
 
@@ -38,7 +39,6 @@ const Header = () => {
           </div>
         </Link>
 
-        {/* Hamburger menu button shown on mobile when closed */}
         {!isMenuOpen && (
           <button
             type="button"
@@ -61,7 +61,6 @@ const Header = () => {
           </button>
         )}
 
-        {/* The responsive menu container */}
         <div
           className={`nav-menu-wrapper ${isMenuOpen ? 'show-mobile-menu' : ''}`}
         >
@@ -75,7 +74,6 @@ const Header = () => {
                 Home
               </Link>
             </li>
-
             <li className="nav-menu-item">
               <Link
                 to="/favorites"
@@ -85,8 +83,6 @@ const Header = () => {
                 Favorites
               </Link>
             </li>
-
-            {/* NEW FEATURE LINK: Added My Orders navigation tab option */}
             <li className="nav-menu-item">
               <Link
                 to="/orders"
@@ -96,7 +92,16 @@ const Header = () => {
                 My Orders
               </Link>
             </li>
-
+            {/* Added Analytics link here with your original pattern */}
+            <li className="nav-menu-item">
+              <Link
+                to="/analytics"
+                className={`nav-link ${isAnalyticsActive ? 'active-nav' : ''}`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Analytics
+              </Link>
+            </li>
             <li className="nav-menu-item">
               <Link
                 to="/cart"
@@ -106,7 +111,6 @@ const Header = () => {
                 Cart
               </Link>
             </li>
-
             <li className="nav-menu-item">
               <Link
                 to="/profile"
@@ -116,7 +120,6 @@ const Header = () => {
                 Profile
               </Link>
             </li>
-
             <li className="nav-menu-item">
               <button
                 type="button"
@@ -127,7 +130,6 @@ const Header = () => {
               </button>
             </li>
 
-            {/* Mobile close menu item */}
             <li className="nav-menu-item mobile-close-item">
               <button
                 type="button"

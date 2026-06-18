@@ -33,3 +33,7 @@ export const updateReview = updatedReview => {
 
   localStorage.setItem(REVIEW_KEY, JSON.stringify(updatedReviews))
 }
+
+export const getAllReviews = () => {
+  return JSON.parse(localStorage.getItem(REVIEW_KEY)) || []
+}

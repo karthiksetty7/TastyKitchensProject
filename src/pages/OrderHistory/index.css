@@ -296,3 +296,13 @@ footer-fee-text {
   margin: 0;
 }
 
+.reward-badge-small {
+  font-size: 11px;
+  color: #854d0e; /* Darker yellow/brown for visibility */
+  background: #fef3c7; /* Light amber background */
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 4px;
+  font-weight: 600;
+}

@@ -1,0 +1,305 @@
+/* ==========================================
+   ANALYTICS PAGE
+========================================== */
+
+.analytics-page {
+  min-height: 100vh;
+  padding: 40px 5%;
+  background: #f8fafc;
+}
+
+.analytics-main-heading {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 40px;
+}
+
+/* ==========================================
+   KPI GRID
+========================================== */
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+/* ==========================================
+   INSIGHTS GRID
+========================================== */
+
+.analytics-insight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+/* ==========================================
+   COMMON CARD
+========================================== */
+
+.analytics-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+  transition: all 0.35s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.analytics-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
+}
+
+.analytics-card h3 {
+  margin: 0;
+  color: #475569;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.card-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.card-value {
+  margin-top: 12px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* ==========================================
+   CUSTOMER SUMMARY
+========================================== */
+
+.customer-summary-card {
+  margin-bottom: 30px;
+}
+
+.customer-summary-card h2 {
+  margin-bottom: 18px;
+  color: #0f172a;
+}
+
+.customer-summary-card p {
+  margin: 10px 0;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   CHART SECTION
+========================================== */
+
+.chart-section {
+  margin-bottom: 30px;
+}
+
+.chart-section h2 {
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+/* ==========================================
+   HIGHLIGHT CARDS
+========================================== */
+
+.highlight-card {
+  text-align: center;
+}
+
+.highlight-card p {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 16px;
+}
+
+.sub-text {
+  display: block;
+  margin-top: 10px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* ==========================================
+   ACHIEVEMENTS
+========================================== */
+
+.achievement-section {
+  margin-top: 40px;
+}
+
+.achievement-section h2 {
+  margin-bottom: 24px;
+  color: #0f172a;
+}
+
+.achievements-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.achievement-card {
+  background: linear-gradient(135deg, #f7931e, #ffb347);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 14px 20px;
+  border-radius: 14px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.achievement-card:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================================
+   REWARD TIER LOOK
+========================================== */
+
+.customer-summary-card strong {
+  color: #0f172a;
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f7931e;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+/* ==========================================
+   LARGE DESKTOP
+========================================== */
+
+@media screen and (min-width: 1600px) {
+  .analytics-page {
+    max-width: 1600px;
+    margin: auto;
+  }
+
+  .card-value {
+    font-size: 36px;
+  }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media screen and (max-width: 991px) {
+  .analytics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .analytics-insight-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .analytics-main-heading {
+    font-size: 32px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media screen and (max-width: 767px) {
+  .analytics-page {
+    padding: 24px 16px;
+  }
+
+  .analytics-main-heading {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .analytics-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .analytics-insight-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .analytics-card {
+    padding: 18px;
+  }
+
+  .card-value {
+    font-size: 24px;
+  }
+
+  .achievement-card {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media screen and (max-width: 480px) {
+  .analytics-main-heading {
+    font-size: 24px;
+  }
+
+  .analytics-card h3 {
+    font-size: 14px;
+  }
+
+  .card-value {
+    font-size: 22px;
+  }
+
+  .customer-summary-card p {
+    font-size: 14px;
+  }
+
+  .highlight-card p {
+    font-size: 20px;
+  }
+}
+
+/* ==========================================
+   FOLD DEVICES
+========================================== */
+
+@media screen and (max-width: 320px) {
+  .analytics-page {
+    padding: 16px 10px;
+  }
+
+  .analytics-main-heading {
+    font-size: 20px;
+  }
+
+  .card-value {
+    font-size: 18px;
+  }
+}

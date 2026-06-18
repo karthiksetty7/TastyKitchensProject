@@ -6,7 +6,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import CartEmpty from '../../components/CartEmpty'
 import BillSummary from '../../components/BillSummary'
-import {saveOrder} from '../../utils/orderHistoryStorage'
+import {redeemRewardPoints, getRewardPoints} from '../../utils/rewardService'
 import {validateCoupon, calculateDiscount} from '../../utils/couponService'
 import {
   calculateGST,
@@ -21,20 +21,21 @@ import './index.css'
 const Cart = () => {
   const {checkoutData, setCheckoutData} = useContext(CheckoutContext)
 
-  // Use cartItems from context as initial state
   const [cartList, setCartList] = useState(checkoutData.cartItems || [])
   const [couponCode, setCouponCode] = useState('')
   const [appliedCoupon, setAppliedCoupon] = useState(
     checkoutData.coupon || null,
   )
   const [couponError, setCouponError] = useState('')
+  const [usedCoupons, setUsedCoupons] = useState([])
+  const [rewardDiscount, setRewardDiscount] = useState(
+    checkoutData.rewardDiscount || 0,
+  )
+  const [rewardError, setRewardError] = useState('')
+
   const navigate = useNavigate()
 
-  const [usedCoupons, setUsedCoupons] = useState([])
-
   useEffect(() => {
-    // Fetch from storage whenever the component mounts
-    // or after a navigation/order placement
     const fetchUsedCoupons = () => {
       const saved = JSON.parse(localStorage.getItem('usedCoupons')) || []
       setUsedCoupons(saved)
@@ -42,7 +43,6 @@ const Cart = () => {
     fetchUsedCoupons()
   }, [])
 
-  // This logic automatically updates because it pulls fresh data from localStorage on every render
   const availableCoupons = [
     {code: 'WELCOME50', desc: '₹50 OFF'},
     {code: 'FLAT100', desc: '₹100 OFF'},
@@ -50,17 +50,21 @@ const Cart = () => {
     {code: 'FREESHIP', desc: 'Free Delivery'},
   ].filter(c => !usedCoupons.includes(c.code))
 
-  // Sync internal state to Context whenever it changes
   const updateCartState = updatedCart => {
     setCartList(updatedCart)
-    setCheckoutData(prev => ({...prev, cartItems: updatedCart}))
+    setRewardDiscount(0)
+    setCheckoutData(prev => ({
+      ...prev,
+      cartItems: updatedCart,
+      rewardDiscount: 0,
+    }))
   }
 
   const emptyCart = () => {
-    if (window.confirm('Are you sure you want to clear your entire cart?')) {
+    if (window.confirm('Clear your entire cart?')) {
       setCartList([])
       setAppliedCoupon(null)
-      setCouponCode('')
+      setRewardDiscount(0)
       setCheckoutData(prev => ({
         ...prev,
         cartItems: [],
@@ -70,45 +74,64 @@ const Cart = () => {
         discount: 0,
         grandTotal: 0,
         coupon: null,
+        rewardDiscount: 0,
       }))
     }
   }
 
   const incrementCartItemQuantity = id => {
-    const updatedCart = cartList.map(eachItem =>
-      eachItem.id === id
-        ? {...eachItem, quantity: eachItem.quantity + 1}
-        : eachItem,
+    updateCartState(
+      cartList.map(item =>
+        item.id === id ? {...item, quantity: item.quantity + 1} : item,
+      ),
     )
-    updateCartState(updatedCart)
   }
 
   const decrementCartItemQuantity = id => {
-    const targetItem = cartList.find(eachItem => eachItem.id === id)
-    if (!targetItem) return
-    const updatedCart =
-      targetItem.quantity === 1
-        ? cartList.filter(eachItem => eachItem.id !== id)
-        : cartList.map(eachItem =>
-            eachItem.id === id
-              ? {...eachItem, quantity: eachItem.quantity - 1}
-              : eachItem,
-          )
-    updateCartState(updatedCart)
+    const updated = cartList
+      .map(item =>
+        item.id === id ? {...item, quantity: item.quantity - 1} : item,
+      )
+      .filter(item => item.quantity > 0)
+    updateCartState(updated)
+  }
+
+  const handleRedeemPoints = () => {
+    const currentPoints = getRewardPoints()
+
+    // 1. Logic: Cap discount at 30% of the subtotal
+    const maxDiscountAllowed = Math.floor(subtotal * 0.3)
+
+    // 2. Logic: Each 100 points = 50 rupees
+    const pointsValueInRupees = Math.floor(currentPoints / 100) * 50
+
+    // 3. The actual discount is the lower of the two
+    const eligibleDiscount = Math.min(maxDiscountAllowed, pointsValueInRupees)
+
+    if (eligibleDiscount <= 0) {
+      setRewardError(
+        maxDiscountAllowed === 0
+          ? 'Add more items to unlock point redemption!'
+          : 'Need at least 100 points to redeem!',
+      )
+      return
+    }
+
+    // 4. Calculate how many points to actually deduct
+    const pointsToDeduct = (eligibleDiscount / 50) * 100
+
+    if (redeemRewardPoints(pointsToDeduct)) {
+      setRewardDiscount(eligibleDiscount)
+      setRewardError('')
+    }
   }
 
   const applyCoupon = () => {
     const coupon = validateCoupon(couponCode)
-    const usedCoupons = JSON.parse(localStorage.getItem('usedCoupons')) || []
-    const isEligibleForFreeDelivery = subtotal >= FREE_DELIVERY_THRESHOLD
-
-    if (!coupon) {
-      setCouponError('Invalid Coupon Code')
-    } else if (usedCoupons.includes(coupon.code)) {
+    if (!coupon) setCouponError('Invalid Coupon')
+    else if (usedCoupons.includes(coupon.code))
       setCouponError('Coupon already used!')
-    } else if (coupon.code === 'FREESHIP' && isEligibleForFreeDelivery) {
-      setCouponError('Already eligible for FREE delivery! Save this for later.')
-    } else {
+    else {
       setAppliedCoupon(coupon)
       setCouponError('')
     }
@@ -120,7 +143,7 @@ const Cart = () => {
     setCouponCode('')
   }
 
-  // Calculate totals
+  // --- Calculations ---
   const subtotal = cartList.reduce(
     (acc, item) => acc + item.cost * item.quantity,
     0,
@@ -135,41 +158,35 @@ const Cart = () => {
     deliveryFee,
   )
   const totalDiscount = discount + deliveryDiscount
-  const grandTotal = calculateFinalAmount({
-    subtotal,
-    deliveryFee,
-    gst,
-    discount: totalDiscount,
-  })
+
+  const grandTotal =
+    calculateFinalAmount({
+      subtotal,
+      deliveryFee,
+      gst,
+      discount: totalDiscount,
+    }) - rewardDiscount
 
   const onClickPlaceOrder = () => {
-    // 1. Mark coupon as used BEFORE saving the order
     if (appliedCoupon) {
       const currentUsed = JSON.parse(localStorage.getItem('usedCoupons')) || []
-
-      // Only update if not already present
       if (!currentUsed.includes(appliedCoupon.code)) {
         const updatedList = [...currentUsed, appliedCoupon.code]
         localStorage.setItem('usedCoupons', JSON.stringify(updatedList))
         setUsedCoupons(updatedList)
       }
     }
-
-    // 2. Update the global context with the final cart values
-    // We do NOT save the order or generate an orderId here anymore.
-    // That happens only at the very end of the checkout process.
     setCheckoutData(prev => ({
       ...prev,
       cartItems: cartList,
       subtotal,
       gst,
       deliveryFee,
-      discount: totalDiscount,
+      discount: totalDiscount + rewardDiscount,
       grandTotal,
       coupon: appliedCoupon,
+      rewardDiscount,
     }))
-
-    // 3. Navigate to the next step in your checkout flow
     navigate('/checkout/address')
   }
 
@@ -266,12 +283,32 @@ const Cart = () => {
           </div>
           {couponError && <p className="coupon-error">{couponError}</p>}
 
+          <div className="reward-redemption-container">
+            <p className="reward-info-text">
+              🏆 Available Points: <strong>{getRewardPoints()}</strong>
+            </p>
+            {rewardDiscount === 0 ? (
+              <button
+                onClick={handleRedeemPoints}
+                className="redeem-button"
+                disabled={getRewardPoints() < 100}
+              >
+                Redeem 100 Points for ₹50
+              </button>
+            ) : (
+              <p className="reward-applied-text">
+                ✅ Reward Applied: -₹{rewardDiscount}
+              </p>
+            )}
+            {rewardError && <p className="coupon-error">{rewardError}</p>}
+          </div>
+
           <div className="summary-container">
             <BillSummary
               subtotal={subtotal}
               gst={gst}
               deliveryFee={deliveryFee}
-              discount={totalDiscount}
+              discount={totalDiscount + rewardDiscount}
               grandTotal={grandTotal}
               couponCode={appliedCoupon?.code}
             />
