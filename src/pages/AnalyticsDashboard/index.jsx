@@ -73,7 +73,8 @@ const AnalyticsDashboard = () => {
 
     const foodJourneyScore =
       analytics.totalOrders * 10 +
-      analytics.totalFavorites * 5 +
+      analytics.favoriteRestaurants * 5 +
+      analytics.favoriteFoods * 3 +
       analytics.rewardPoints
 
     // -------------------------
