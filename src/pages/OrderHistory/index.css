@@ -1,0 +1,298 @@
+.order-history-page-bg {
+  min-height: 80vh;
+  background-color: #f8fafc;
+  padding: 40px 24px;
+}
+
+.order-history-content-wrapper {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.history-main-title {
+  font-family: 'DM Sans', sans-serif;
+  color: #0f172a;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.orders-timeline-list {
+  padding-left: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Premium Card Elements Styling */
+.order-history-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0px 4px 12px rgba(15, 23, 42, 0.02);
+}
+
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.order-restaurant-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.order-id-tag {
+  font-size: 13px;
+  color: #64748b;
+  font-family: monospace;
+}
+
+.order-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #f0fdf4;
+  color: #16a34a;
+  padding: 6px 12px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badge-check-icon {
+  font-size: 14px;
+}
+
+/* Items List Styling */
+.order-items-breakdown-list {
+  padding-left: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.order-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #475569;
+  font-size: 15px;
+}
+
+.item-qty-multiplier {
+  color: #f97316;
+  margin-left: 6px;
+}
+
+.order-item-row-cost {
+  font-weight: 500;
+  color: #334155;
+}
+
+.order-card-divider {
+  border: none;
+  border-bottom: 1px solid #f1f5f9;
+  margin: 0 0 16px 0;
+}
+
+/* Footer Section Metrics Layout */
+.order-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-discount-text,
+.footer-fee-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #065f46; /* Deep emerald green for trust */
+  background: #ecfdf5; /* Very soft mint background */
+  padding: 4px 12px;
+  border-radius: 6px; /* Soft, modern rounded corners */
+  border: 1px solid #a7f3d0; /* Subtle border for definition */
+  display: inline-flex; /* Keeps the tag compact */
+  align-items: center;
+  margin-bottom: 8px; /* Spacing from the total price */
+  letter-spacing: 0.02em; /* Slight letter spacing for elegance */
+  box-shadow: 0 1px 2px rgba(6, 95, 70, 0.05); /* Very light shadow for depth */
+}
+
+.footer-timestamp-label,
+.footer-total-label {
+  font-size: 12px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+}
+
+.footer-timestamp-value {
+  font-size: 14px;
+  color: #475569;
+  font-weight: 500;
+}
+
+.footer-total-value {
+  font-size: 18px;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* ==========================================================
+   EMPTY HISTORY VIEW (UPDATED: PERFECTLY CENTERED & UPSCALED)
+   ========================================================== */
+.empty-history-container {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 64px 24px;
+
+  /* Flexbox engine forcing precise element center centering layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 55vh;
+}
+
+.empty-history-image {
+  width: 240px; /* Upscaled from 160px for a beautiful layout balance */
+  height: 240px; /* Upscaled from 160px */
+  margin-bottom: 32px;
+  object-fit: contain;
+}
+
+.empty-history-heading {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 24px;
+  color: #1e293b;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.empty-history-description {
+  font-family: 'DM Sans', sans-serif;
+  color: #64748b;
+  font-size: 15px;
+  max-width: 440px;
+  margin: 0 auto 32px auto;
+  line-height: 1.6;
+}
+
+.order-now-btn {
+  background-color: #f97316;
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.order-now-btn:hover {
+  background-color: #ea580c;
+}
+
+/* ==========================================================
+   REPEAT ORDER ACTION BUTTON SPECIFICATIONS
+   ========================================================== */
+.footer-bill-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  text-align: right;
+}
+
+.repeat-order-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: transparent;
+  color: #f7931e;
+  border: 1px solid #f7931e;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.repeat-order-action-btn:hover {
+  background-color: #f7931e;
+  color: #ffffff;
+  box-shadow: 0px 2px 6px rgba(247, 147, 30, 0.2);
+}
+
+.repeat-btn-icon {
+  font-size: 11px;
+}
+
+/* ==========================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================== */
+@media screen and (max-width: 576px) {
+  .order-history-page-bg {
+    padding: 24px 16px;
+  }
+
+  .order-history-card {
+    padding: 16px;
+  }
+
+  .order-restaurant-title {
+    font-size: 18px;
+  }
+
+  /* NEW: Fixes the footer layout on mobile */
+  .order-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .footer-bill-summary {
+    width: 100%;
+    align-items: flex-start; /* Aligns price/button to left on mobile */
+  }
+
+  .repeat-order-action-btn {
+    width: 100%;
+    justify-content: center; /* Makes button span full width for better touch */
+  }
+
+  .empty-history-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .empty-history-heading {
+    font-size: 20px;
+  }
+}
+
+footer-fee-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+}
+

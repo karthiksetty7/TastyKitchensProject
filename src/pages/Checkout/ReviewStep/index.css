@@ -1,0 +1,118 @@
+/* Container Layout */
+.checkout-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.checkout-title {
+  font-size: clamp(20px, 5vw, 24px);
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 24px;
+}
+
+/* Review Box: Main Card */
+.review-box {
+  border: 1.5px solid #e2e8f0;
+  padding: 24px;
+  border-radius: 12px;
+  background: #f8fafc;
+  margin-bottom: 24px;
+}
+
+.review-box h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #1e293b;
+  font-size: 18px;
+}
+
+/* Items List Styling */
+.review-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.review-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #475569;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #e2e8f0;
+  margin: 16px 0;
+}
+
+/* Integration: Making BillSummary fit perfectly */
+.bill-summary-container {
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin-top: 0 !important;
+  gap: 12px;
+}
+
+/* Address and Payment Details */
+.review-details {
+  margin-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 16px;
+}
+
+.review-details p {
+  margin: 8px 0;
+  color: #334155;
+  font-size: 14px;
+}
+
+/* Buttons */
+.checkout-next-btn {
+  width: 100%;
+  padding: 16px;
+  background-color: #f7931e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.checkout-next-btn:hover {
+  background-color: #ea8910;
+}
+
+.cancel-btn {
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  color: #ef4444;
+  border: 1px solid #ef4444;
+  border-radius: 8px;
+  margin-top: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+  background: #fef2f2;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .checkout-container {
+    padding: 0 16px;
+  }
+  .review-box {
+    padding: 16px;
+  }
+}

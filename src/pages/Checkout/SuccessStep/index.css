@@ -1,0 +1,75 @@
+/* Layout Container - Inherited from checkout flow */
+.checkout-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Success Content Box */
+.success-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background: white;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 64px;
+  color: #22c55e;
+  margin-bottom: 24px;
+}
+
+.checkout-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
+.order-id-text {
+  font-size: 16px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.success-message {
+  color: #475569;
+  margin-bottom: 32px;
+  line-height: 1.5;
+  max-width: 320px;
+}
+
+/* Success Button Overrides */
+.success-btn {
+  background-color: #22c55e !important;
+  width: auto !important;
+  min-width: 220px;
+  padding: 16px 32px !important;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.success-btn:hover {
+  background-color: #16a34a !important;
+}
+
+/* Responsive adjustment for extra-small devices */
+@media (max-width: 480px) {
+  .checkout-container {
+    padding: 0 16px;
+  }
+  .success-content {
+    padding: 32px 16px;
+  }
+  .success-icon {
+    font-size: 48px;
+  }
+}

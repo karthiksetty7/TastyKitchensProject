@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-container {
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: #f8fafc;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 48px 40px;
+  text-align: center;
+  box-shadow: 0 10px 35px rgba(15, 23, 42, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-4px);
+}
+
+.profile-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 28px auto;
+  border: 4px solid #f7931e;
+  box-shadow: 0 8px 25px rgba(247, 147, 30, 0.2);
+}
+
+.profile-name {
+  color: #183b56;
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+
+.profile-role {
+  color: #f7931e;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.profile-description {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* ==========================
+   LARGE DESKTOPS
+   ========================== */
+
+@media screen and (min-width: 1400px) {
+  .profile-card {
+    max-width: 580px;
+    padding: 56px;
+  }
+
+  .profile-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .profile-name {
+    font-size: 38px;
+  }
+}
+
+/* ==========================
+   TABLETS
+   ========================== */
+
+@media screen and (max-width: 991px) {
+  .profile-card {
+    max-width: 480px;
+    padding: 40px 30px;
+  }
+
+  .profile-image {
+    width: 160px;
+    height: 160px;
+  }
+
+  .profile-name {
+    font-size: 30px;
+  }
+}
+
+/* ==========================
+   MOBILE DEVICES
+   ========================== */
+
+@media screen and (max-width: 767px) {
+  .profile-container {
+    padding: 24px 16px;
+    min-height: calc(100vh - 70px);
+  }
+
+  .profile-card {
+    max-width: 100%;
+    border-radius: 18px;
+    padding: 32px 24px;
+  }
+
+  .profile-image {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 20px;
+  }
+
+  .profile-name {
+    font-size: 26px;
+  }
+
+  .profile-role {
+    font-size: 16px;
+  }
+
+  .profile-description {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
+/* ==========================
+   SMALL PHONES
+   iPhone SE / Galaxy Fold
+   ========================== */
+
+@media screen and (max-width: 380px) {
+  .profile-container {
+    padding: 16px;
+  }
+
+  .profile-card {
+    padding: 24px 18px;
+  }
+
+  .profile-image {
+    width: 110px;
+    height: 110px;
+  }
+
+  .profile-name {
+    font-size: 22px;
+  }
+
+  .profile-role {
+    font-size: 14px;
+  }
+  ccbp publish RJSCPNB565 tkitchens.ccbp.tech .profile-description {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.home-container {
+  max-width: 1140px;
+  margin: auto;
+  padding: 24px;
+  width: 100%;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+}
+
+/* ==========================================================
+   OPTIMIZED CAROUSEL SLIDER ENGINE
+   ========================================================== */
+.carousel-wrapper-container {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+/* Hide navigation arrows globally */
+.slick-prev,
+.slick-next {
+  display: none !important;
+}
+
+/* Ensure each individual slide block occupies full layout width */
+.carousel-slide-item {
+  width: 100% !important;
+  outline: none;
+}
+
+/* Desktop Banner Dimensions */
+.offer-image {
+  width: 100%;
+  height: 320px;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================================
+   RESTAURANTS COMPONENTS
+   ========================================================== */
+.restaurants-list {
+  padding-left: 0;
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+
+.pagination-container button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination-container p {
+  margin-left: 16px;
+  margin-right: 16px;
+  color: #334155;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.slick-dots li button:before {
+  font-size: 10px;
+}
+
+/* ==========================================================
+   MOBILE DEVICES ADJUSTMENTS (767px and below)
+   ========================================================== */
+@media screen and (max-width: 767px) {
+  .home-container {
+    padding: 16px;
+  }
+
+  .offer-image {
+    width: 100% !important;
+    /* Sets a well-proportioned fixed height for modern mobile screens */
+    height: 140px !important;
+    border-radius: 8px;
+    /* Scales to fill the box while anchoring the viewpoint directly in the center */
+    object-fit: cover !important;
+    object-position: center center !important;
+    display: block;
+  }
+
+  .restaurants-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .pagination-container {
+    margin-top: 32px;
+  }
+
+  .pagination-container p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .restaurants-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .restaurants-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Ensure the recommended section respects the main container layout */
+.recommendations-heading {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 24px;
+  color: #1e293b;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+/* This targets the ul specifically when it follows the heading */
+.recommendations-heading + .restaurants-list {
+  margin-top: 0; /* Align perfectly with the heading */
+}

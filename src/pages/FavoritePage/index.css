@@ -1,0 +1,162 @@
+.favorites-page-bg-container {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'DM Sans', sans-serif;
+  padding-bottom: 40px;
+}
+
+/* Tabs Section Styling Layout */
+.favorites-tabs-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding-top: 32px;
+  border-bottom: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  padding-bottom: 12px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  padding: 8px 16px;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: #1e293b;
+}
+
+.active-tab {
+  color: #f7931e;
+  font-weight: 700;
+}
+
+.active-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #f7931e;
+  border-radius: 3px 3px 0 0;
+}
+
+.favorites-content-wrapper {
+  width: 85%;
+  max-width: 1110px;
+  margin: 0 auto;
+  padding-top: 48px;
+}
+
+.favorites-main-heading {
+  color: #1e293b;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+/* Empty State / No Favorites View Styling */
+.no-favorites-view-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.no-favorites-img {
+  width: 250px;
+  max-width: 100%;
+  margin-bottom: 32px;
+}
+
+.no-favorites-heading {
+  color: #1e293b;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.no-favorites-description {
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Flex Grid Wrapper configurations for Restaurant Items */
+.favorites-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin: 0;
+  list-style-type: none;
+  gap: 24px;
+}
+
+.favorites-list-container > li {
+  flex: 1 1 calc(50% - 24px); /* Beautiful 2-column system on desktop viewports */
+  min-width: 280px;
+}
+
+/* Layout Wrapper tracking for Dish List context */
+.favorites-food-list-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 767px) {
+  .favorites-content-wrapper {
+    width: 90%;
+    padding-top: 24px;
+  }
+
+  .favorites-tabs-container {
+    gap: 8px;
+    padding-top: 20px;
+  }
+
+  .tab-btn {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .favorites-list-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .favorites-list-container > li {
+    flex: 1 1 100%; /* Adapts cards to stack cleanly in 1 column on mobile phones */
+  }
+
+  .favorites-main-heading {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .no-favorites-img {
+    width: 180px;
+  }
+
+  .no-favorites-heading {
+    font-size: 20px;
+  }
+
+  .no-favorites-description {
+    font-size: 14px;
+  }
+}

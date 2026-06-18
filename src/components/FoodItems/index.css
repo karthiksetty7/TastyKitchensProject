@@ -1,0 +1,147 @@
+/* Write your code here */
+.food-item-card {
+  list-style-type: none;
+  display: flex;
+  margin-bottom: 32px;
+  width: 100%; /* Ensures card utilizes full width of list parent grid */
+}
+
+.food-image {
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.food-details {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1; /* Instructs details box to fill remaining horizontal room */
+  min-width: 0; /* CRITICAL: Allows flex child elements to shrink and truncate instead of overflowing */
+}
+
+/* Layout wrapper pushing item name to left and icon button to the extreme right */
+.food-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.food-name {
+  color: #334155;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  white-space: nowrap; /* Prevents long titles from wrapping line breaks */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Appends a professional "..." if food title is too long */
+}
+
+/* Heart shape favorite toggle button interface styles */
+.item-favorite-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  flex-shrink: 0; /* CRITICAL: Prevents the button container element from shrinking away */
+  margin-left: 8px;
+}
+
+.food-favorite-icon {
+  font-size: 20px;
+  color: #cbd5e1; /* Neutral outline color styling when item isn't liked */
+  transition:
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.food-favorite-icon.active {
+  color: #e63946; /* Clean active red tone color when dish is bookmarked */
+}
+
+.item-favorite-btn:hover .food-favorite-icon {
+  transform: scale(1.15); /* Micro interaction pop hover feed */
+}
+
+.food-price-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.rupee-icon {
+  color: #334155;
+  font-size: 14px;
+}
+
+.food-price {
+  color: #334155;
+  margin-left: 4px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.add-button {
+  width: 70px;
+  height: 32px;
+  margin-top: 12px;
+  border: 2px solid #f7931e;
+  background-color: transparent;
+  color: #f7931e;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.quantity-controller {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.count-button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #cbd5e1;
+  background-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.count-text {
+  margin-left: 12px;
+  margin-right: 12px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .food-item-card {
+    flex-direction: column;
+  }
+
+  .food-image {
+    width: 100%;
+    height: 200px;
+  }
+
+  .food-details {
+    margin-left: 0;
+    margin-top: 12px;
+    width: 100%;
+  }
+
+  .food-name {
+    font-size: 18px;
+  }
+}

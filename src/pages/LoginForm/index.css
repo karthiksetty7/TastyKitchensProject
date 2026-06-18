@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.login-bg {
+  min-height: 100vh;
+  display: flex;
+  background-color: #fafbfe;
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Form Area Layout container */
+.login-card-container {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px;
+  background-color: #ffffff;
+  z-index: 2;
+  box-shadow: 10px 0 30px rgba(15, 23, 42, 0.02);
+}
+
+.login-form-card {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Branded Top Identity Setup */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  align-self: flex-start;
+}
+
+.login-logo {
+  width: 42px;
+  height: 38px;
+  filter: drop-shadow(0px 4px 8px rgba(247, 147, 30, 0.2));
+}
+
+.login-title {
+  font-size: 22px;
+  color: #f7931e;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Typography Enhancements */
+.login-heading {
+  font-size: 32px;
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.login-subheading {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* Fields Styling & Interactive Rings */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+}
+
+.input-label {
+  font-size: 11px;
+  color: #475569;
+  margin-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.input-field {
+  height: 48px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 10px;
+  padding-left: 16px;
+  font-size: 14px;
+  color: #0f172a;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-field::placeholder {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+/* Captures sleek glow ring focus indicator */
+.input-field:focus {
+  background: #ffffff;
+  border-color: #f7931e;
+  box-shadow: 0 0 0 4px rgba(247, 147, 30, 0.12);
+}
+
+/* Submit Button Physics Actions */
+.login-button {
+  width: 100%;
+  height: 48px;
+  margin-top: 36px;
+  border: none;
+  border-radius: 10px;
+  background: #f7931e;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0px 6px 20px rgba(247, 147, 30, 0.25);
+  transition: all 0.2s ease;
+}
+
+.login-button:hover {
+  background: #e08217;
+  transform: translateY(-1px);
+  box-shadow: 0px 8px 24px rgba(247, 147, 30, 0.35);
+}
+
+.login-button:active {
+  transform: translateY(1px);
+  box-shadow: 0px 4px 12px rgba(247, 147, 30, 0.2);
+}
+
+/* Toast Message Style Badges */
+.error-badge {
+  background-color: #fef2f2;
+  border-left: 4px solid #ef4444;
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 20px;
+  animation: shake 0.4s ease-in-out;
+}
+
+.error-message {
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Right-side Widescreen Graphic Panel */
+.desktop-login-image-container {
+  width: 55%;
+  position: relative;
+  overflow: hidden;
+}
+
+.desktop-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.3) 0%,
+    rgba(247, 147, 30, 0.1) 100%
+  );
+  z-index: 1;
+}
+
+.desktop-login-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 10s ease;
+}
+
+.desktop-login-image-container:hover .desktop-login-image {
+  transform: scale(1.06);
+}
+
+.mobile-login-image-container {
+  display: none;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+/* ==========================================================
+   MOBILE DEVICES TARGET DESIGN
+   ========================================================== */
+@media screen and (max-width: 767px) {
+  .login-bg {
+    flex-direction: column;
+    background-color: #ffffff;
+  }
+
+  .desktop-login-image-container {
+    display: none;
+  }
+
+  .mobile-login-image-container {
+    display: block;
+    width: 100%;
+    height: 44vh;
+    position: relative;
+    overflow: hidden;
+    clip-path: ellipse(110% 100% at 50% 0%);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .mobile-login-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .login-card-container {
+    width: 100%;
+    padding: 36px 28px;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .login-form-card {
+    max-width: 100%;
+  }
+
+  .logo-container {
+    display: none;
+  }
+
+  .login-heading {
+    text-align: left;
+    font-size: 34px;
+    margin-bottom: 6px;
+  }
+
+  .login-subheading {
+    text-align: left;
+    margin-bottom: 16px;
+  }
+}

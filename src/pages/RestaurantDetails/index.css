@@ -1,0 +1,488 @@
+.restaurant-loader-container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===========================================
+   RESTAURANT BANNER
+=========================================== */
+
+.restaurant-banner {
+  background-color: #333333;
+  width: 100%;
+  overflow: hidden;
+}
+
+.restaurant-banner-content {
+  max-width: 1140px;
+  margin: auto;
+  padding: 40px 24px;
+  display: flex;
+  align-items: center;
+}
+
+.restaurant-timing {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f7931e;
+  margin-top: 10px;
+}
+
+.restaurant-banner-image {
+  width: 445px;
+  height: 280px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block;
+}
+
+.restaurant-info {
+  margin-left: 32px;
+  color: #ffffff;
+  flex: 1;
+}
+
+.restaurant-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.restaurant-cuisine {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.restaurant-location {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.restaurant-opens-at {
+  margin-bottom: 20px;
+  color: #f7931e;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.restaurant-meta {
+  display: flex;
+  align-items: center;
+}
+
+.separator {
+  width: 1px;
+  height: 45px;
+  background-color: #ffffff;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+}
+
+.details-star-icon {
+  color: #ffcc00;
+  margin-right: 6px;
+}
+
+.rating-value {
+  font-weight: 700;
+  margin: 0;
+}
+
+.meta-text {
+  font-size: 12px;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+/* ===========================================
+   FOOD CONTROLS
+=========================================== */
+
+.food-controls {
+  max-width: 1140px;
+  margin: 32px auto 0;
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 260px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.food-search-input {
+  width: 100%;
+  height: 44px;
+
+  border: 1px solid #d7dfe9;
+  border-radius: 8px;
+
+  padding: 0 14px 0 38px;
+
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease;
+  box-sizing: border-box;
+}
+
+.food-search-input:focus {
+  border-color: #f7931e;
+  box-shadow: 0 0 0 3px rgba(247, 147, 30, 0.15);
+}
+
+.food-filter-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.food-filter-buttons button {
+  border: 1px solid #f7931e;
+  background-color: transparent;
+
+  color: #f7931e;
+
+  padding: 10px 16px;
+
+  border-radius: 6px;
+  cursor: pointer;
+
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.food-filter-buttons button:hover {
+  background-color: #fff7ed;
+}
+
+.active-filter {
+  background-color: #f7931e !important;
+  color: #ffffff !important;
+}
+
+.food-sort-select {
+  height: 44px;
+
+  border: 1px solid #d7dfe9;
+  border-radius: 8px;
+
+  padding: 0 12px;
+  outline: none;
+
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ===========================================
+   FOOD SECTION
+=========================================== */
+
+.food-section {
+  max-width: 1140px;
+  margin: auto;
+  padding: 40px 24px;
+}
+
+.food-items-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+/* ===========================================
+   NO RESULTS VIEW (UPDATED WITH IMAGE STYLES)
+=========================================== */
+
+.no-foods-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.no-foods-image {
+  width: 240px;
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 24px;
+  object-fit: contain;
+}
+
+.no-foods-container h1 {
+  color: #183b56;
+  font-size: 28px;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.no-foods-container p {
+  color: #64748b;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* ===========================================
+   TABLET
+=========================================== */
+
+@media screen and (max-width: 991px) {
+  .restaurant-banner-image {
+    width: 350px;
+    height: 240px;
+  }
+
+  .restaurant-title {
+    font-size: 30px;
+  }
+
+  .food-items-list {
+    gap: 24px;
+  }
+
+  .food-controls {
+    gap: 12px;
+  }
+}
+
+/* ===========================================
+   MOBILE
+=========================================== */
+
+@media screen and (max-width: 767px) {
+  .restaurant-banner-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+  }
+
+  .restaurant-banner-image {
+    width: 100%;
+    height: 240px;
+  }
+
+  .restaurant-info {
+    margin-left: 0;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .restaurant-title {
+    font-size: 26px;
+  }
+
+  .restaurant-opens-at {
+    font-size: 13px;
+  }
+
+  .restaurant-meta {
+    flex-wrap: wrap;
+  }
+
+  .separator {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .food-controls {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 20px;
+    gap: 14px;
+  }
+
+  .search-input-wrapper {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .food-search-input {
+    width: 100%;
+    height: 44px;
+    border: 1px solid #d7dfe9;
+    border-radius: 8px;
+    padding: 0 12px 0 38px;
+    font-size: 14px;
+    color: #334155;
+    background-color: #ffffff;
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  .food-search-input:focus {
+    border-color: #f7931e;
+    box-shadow: 0 0 0 3px rgba(247, 147, 30, 0.15);
+  }
+
+  .food-filter-buttons {
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .food-filter-buttons button {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .food-sort-select {
+    width: 100%;
+    height: 44px;
+  }
+
+  .food-section {
+    padding: 24px 20px;
+  }
+
+  .food-items-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .no-foods-image {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+
+  .no-foods-container h1 {
+    font-size: 22px;
+  }
+
+  .no-foods-container p {
+    font-size: 14px;
+  }
+}
+
+/* ===========================================
+   SMALL MOBILE
+=========================================== */
+
+@media screen and (max-width: 576px) {
+  .restaurant-banner-content {
+    padding: 20px 16px;
+  }
+
+  .restaurant-banner-image {
+    height: 220px;
+    border-radius: 8px;
+  }
+
+  .restaurant-title {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .restaurant-cuisine {
+    font-size: 14px;
+  }
+
+  .restaurant-location {
+    font-size: 13px;
+  }
+
+  .restaurant-opens-at {
+    font-size: 12px;
+  }
+
+  .rating-value {
+    font-size: 14px;
+  }
+
+  .meta-text {
+    font-size: 11px;
+  }
+
+  .food-section {
+    padding: 20px 16px;
+  }
+
+  .food-search-input {
+    height: 42px;
+    font-size: 13px;
+    border-radius: 8px;
+    padding-left: 36px;
+  }
+
+  .search-icon {
+    left: 12px;
+    font-size: 13px;
+  }
+
+  .food-filter-buttons button {
+    padding: 8px 0;
+    font-size: 13px;
+  }
+
+  .food-sort-select {
+    height: 42px;
+    font-size: 13px;
+  }
+
+  .no-foods-image {
+    width: 170px;
+  }
+}
+
+/* ===========================================
+   EXTRA SMALL DEVICES
+=========================================== */
+
+@media screen and (max-width: 360px) {
+  .restaurant-title {
+    font-size: 20px;
+  }
+
+  .food-filter-buttons {
+    gap: 6px;
+  }
+
+  .food-filter-buttons button {
+    font-size: 12px;
+  }
+
+  .food-search-input {
+    font-size: 12px;
+  }
+
+  .food-sort-select {
+    font-size: 12px;
+  }
+
+  .no-foods-container h1 {
+    font-size: 18px;
+  }
+
+  .no-foods-image {
+    width: 140px;
+  }
+}

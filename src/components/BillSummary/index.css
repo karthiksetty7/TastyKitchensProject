@@ -1,0 +1,45 @@
+.bill-summary-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.bill-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #475569;
+}
+
+.bill-divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 4px 0;
+}
+
+.total-row {
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 16px;
+}
+
+.coupon-row {
+  color: #065f46;
+  font-weight: 600;
+}
+
+/* Responsive adjustment for extra-small mobile devices */
+@media screen and (max-width: 360px) {
+  .bill-summary-container {
+    padding: 12px;
+  }
+  .bill-row {
+    font-size: 12px;
+  }
+}

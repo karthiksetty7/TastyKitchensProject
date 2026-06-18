@@ -1,0 +1,72 @@
+.recently-viewed-container {
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.recently-viewed-heading {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+/* Horizontal scrolling row */
+.recently-viewed-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+}
+
+.recently-viewed-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Important */
+.recently-viewed-list .restaurant-card {
+  flex: 0 0 100%;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.recently-viewed-divider {
+  border: none;
+  border-bottom: 1px dashed #cbd5e1;
+  margin-top: 24px;
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+  .recently-viewed-heading {
+    font-size: 20px;
+  }
+
+  .recently-viewed-list .restaurant-card {
+    flex: 0 0 92%;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .recently-viewed-list .restaurant-card {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 992px) {
+  .recently-viewed-list .restaurant-card {
+    flex: 0 0 calc(50% - 10px);
+  }
+}

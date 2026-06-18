@@ -1,0 +1,107 @@
+/* Layout Container - Ensures consistent width across devices */
+.checkout-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.checkout-title {
+  font-size: clamp(20px, 5vw, 24px); /* Responsive font scaling */
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 24px;
+}
+
+/* Card Styling */
+.address-card {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+}
+
+.address-card:hover {
+  border-color: #f7931e;
+  transform: translateY(-2px); /* Subtle hover lift effect */
+}
+
+.address-card.active {
+  border-color: #f7931e;
+  background-color: #fffaf5;
+  box-shadow: 0 8px 16px -4px rgba(247, 147, 30, 0.2);
+}
+
+/* Radio Button Indicator */
+.radio-indicator {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #cbd5e1;
+  border-radius: 50%;
+  margin-right: 16px;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.address-card.active .radio-indicator {
+  border-color: #f7931e;
+  background: #f7931e;
+  background-clip: content-box;
+  padding: 4px;
+}
+
+.address-label {
+  font-weight: 600;
+  color: #1e293b;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.address-details {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Button Styling */
+.checkout-next-btn {
+  width: 100%;
+  padding: 16px;
+  background-color: #f7931e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+.checkout-next-btn:disabled {
+  background-color: #cbd5e1;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.checkout-next-btn:hover:not(:disabled) {
+  background-color: #ea8910;
+}
+
+/* Responsive Breakpoint for Small Screens */
+@media (max-width: 480px) {
+  .checkout-container {
+    padding: 0 16px;
+    margin: 20px auto;
+  }
+  .address-card {
+    padding: 16px;
+  }
+}
