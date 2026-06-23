@@ -126,15 +126,25 @@ const Cart = () => {
     }
   }
 
-  const applyCoupon = () => {
+   const applyCoupon = () => {
     const coupon = validateCoupon(couponCode)
-    if (!coupon) setCouponError('Invalid Coupon')
-    else if (usedCoupons.includes(coupon.code))
+
+    if (!coupon) {
+      setCouponError('Invalid Coupon')
+    } else if (usedCoupons.includes(coupon.code)) {
       setCouponError('Coupon already used!')
-    else {
+    } else if (
+      coupon.code === 'FREESHIP' &&
+      subtotal >= FREE_DELIVERY_THRESHOLD
+    ) {
+      setCouponError(
+        'You cannot use this coupon because free delivery has already been applied.',
+      )
+    } else {
       setAppliedCoupon(coupon)
       setCouponError('')
     }
+
     setCouponCode('')
   }
 
