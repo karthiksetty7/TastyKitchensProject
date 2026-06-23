@@ -137,9 +137,7 @@ const Cart = () => {
       coupon.code === 'FREESHIP' &&
       subtotal >= FREE_DELIVERY_THRESHOLD
     ) {
-      setCouponError(
-        'You cannot use this coupon because free delivery has already been applied.',
-      )
+      setCouponError('Free delivery is already active.')
     } else {
       setAppliedCoupon(coupon)
       setCouponError('')
