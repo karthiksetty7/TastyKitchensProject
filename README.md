@@ -7,12 +7,14 @@
 Discover restaurants, explore menus, manage favorites, place orders, track purchase history, and gain insights through analytics — all in one seamless experience.
 
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Platform-success?style=for-the-badge)](https://tkitchens.ccbp.tech/login)
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge\&logo=react\&logoColor=white)]()
-[![Vite](https://img.shields.io/badge/Vite-Latest-646CFF?style=for-the-badge\&logo=vite\&logoColor=white)]()
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white)]()
+[![Vite](https://img.shields.io/badge/Vite-Latest-646CFF?style=for-the-badge&logo=vite&logoColor=white)]()
 [![Responsive](https://img.shields.io/badge/Responsive-Design-brightgreen?style=for-the-badge)]()
 [![Context API](https://img.shields.io/badge/State_Management-Context_API-orange?style=for-the-badge)]()
 
-### 🚀 Live Application
+<br/>
+
+## 🚀 Live Application
 
 https://tkitchens.ccbp.tech/login
 
@@ -28,7 +30,56 @@ The application allows users to browse restaurants, explore menus, manage favori
 
 Unlike basic food ordering applications, this platform focuses on delivering a complete end-to-end customer journey with personalized experiences and scalable frontend architecture.
 
-### Key Highlights
+---
+
+# 🔑 Demo Login Credentials
+
+To explore the live application, you can use the following demo accounts:
+
+## 👤 User Account 1
+
+```
+Username: rahul
+Password: rahul@2021
+```
+
+---
+
+## 👤 User Account 2
+
+```
+Username: raja
+Password: raja@2021
+```
+
+---
+
+### How To Access
+
+1. Open the live application:
+
+```
+https://tkitchens.ccbp.tech/login
+```
+
+2. Enter any one of the above credentials.
+
+3. Explore the complete food ordering experience including:
+
+✅ Restaurant Discovery  
+✅ Food Menu Exploration  
+✅ Search & Sorting  
+✅ Favorites Management  
+✅ Shopping Cart  
+✅ Checkout Workflow  
+✅ Order History  
+✅ Analytics Dashboard  
+
+> These demo accounts provide complete access for evaluating the application's features and user experience.
+
+---
+
+# 🌟 Key Highlights
 
 ✅ Secure Authentication System
 
@@ -128,7 +179,7 @@ Secure user authentication ensures controlled access to the platform.
 
 ---
 
-## 🍴 Restaurant Discovery
+# 🍴 Restaurant Discovery
 
 Users can explore a variety of restaurants through an intuitive browsing experience.
 
@@ -142,7 +193,7 @@ Users can explore a variety of restaurants through an intuitive browsing experie
 
 ---
 
-## 🔎 Smart Search & Sorting
+# 🔎 Smart Search & Sorting
 
 Quickly discover restaurants based on preferences.
 
@@ -156,7 +207,7 @@ Quickly discover restaurants based on preferences.
 
 ---
 
-## 📖 Restaurant Details
+# 📖 Restaurant Details
 
 Detailed restaurant pages provide comprehensive information.
 
@@ -171,7 +222,7 @@ Detailed restaurant pages provide comprehensive information.
 
 ---
 
-## 🍔 Food Ordering System
+# 🍔 Food Ordering System
 
 Users can browse and add food items directly to their cart.
 
@@ -185,7 +236,7 @@ Users can browse and add food items directly to their cart.
 
 ---
 
-## 🛒 Shopping Cart Management
+# 🛒 Shopping Cart Management
 
 The platform provides a seamless cart experience.
 
@@ -200,31 +251,31 @@ The platform provides a seamless cart experience.
 
 ---
 
-## 💳 Multi-Step Checkout Workflow
+# 💳 Multi-Step Checkout Workflow
 
 A structured checkout process improves ordering accuracy and user confidence.
 
 ### Checkout Stages
 
-#### 1️⃣ Address Selection
+## 1️⃣ Address Selection
 
 Users provide delivery information.
 
-#### 2️⃣ Payment Selection
+## 2️⃣ Payment Selection
 
 Payment details are reviewed and confirmed.
 
-#### 3️⃣ Order Review
+## 3️⃣ Order Review
 
 Users verify their order before final submission.
 
-#### 4️⃣ Order Success
+## 4️⃣ Order Success
 
 Successful order confirmation with summary.
 
 ---
 
-## ❤️ Favorites Management
+# ❤️ Favorites Management
 
 Users can save restaurants for quick future access.
 
@@ -237,7 +288,7 @@ Users can save restaurants for quick future access.
 
 ---
 
-## 🕒 Order History
+# 🕒 Order History
 
 Complete visibility into previous purchases.
 
@@ -250,7 +301,7 @@ Complete visibility into previous purchases.
 
 ---
 
-## 👤 User Profile
+# 👤 User Profile
 
 Dedicated profile section for managing user information.
 
@@ -262,7 +313,7 @@ Dedicated profile section for managing user information.
 
 ---
 
-## 📈 Analytics Dashboard
+# 📈 Analytics Dashboard
 
 One of the standout features of this project.
 
@@ -284,7 +335,7 @@ The analytics dashboard transforms user activity into meaningful insights.
 
 ---
 
-## 👀 Recently Viewed Restaurants
+# 👀 Recently Viewed Restaurants
 
 Provides a personalized browsing experience.
 
@@ -451,10 +502,13 @@ This project demonstrates the ability to design and develop a complete customer-
 
 <div align="center">
 
+# 🍽️ Tasty Kitchens
+
 ### 🌐 Live Application
 
 https://tkitchens.ccbp.tech/login
 
-### Thank You For Visiting Tasty Kitchens 🍽️
+
+### Delivering A Seamless Digital Food Experience 🚀
 
 </div>
